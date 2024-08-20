@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
 import { YOUTUBE_VID_API } from "../utils/constants";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
   const [videos,setVideos] = useState([])
@@ -16,6 +15,7 @@ const VideoContainer = () => {
     const json = await data.json();
     setVideos(json.items)
   };
+
   return (
 
     <div className="flex flex-wrap w-full ml-2">
