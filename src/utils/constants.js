@@ -1,6 +1,6 @@
 const YOUTUBE_API_KEY = "AIzaSyCGm1DHejMPG4bJVO0a7AJO4Ks0ipFPLFo"
 export const YOUTUBE_VID_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=51&hl=pa&relevanceLanguage=pa&regionCode=IN&videoCategoryId=10&key=" + YOUTUBE_API_KEY;
-export const YOUTUBE_SEARCH_API = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+export const YOUTUBE_SEARCH_API = "https://thingproxy-760k.onrender.com/fetch/https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 export const getYoutubeCommentApi = (videoId) => `https://www.googleapis.com/youtube/v3/commentThreads?key=${YOUTUBE_API_KEY}+&textFormat=plainText&part=snippet&videoId=${videoId}&maxResults=30`
 export const YOUTUBE_VIDEO_BYID = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=${YOUTUBE_API_KEY}&id=`;
 export const LIVE_CHAT_COUNT = 25;
