@@ -17,8 +17,5 @@ const CommentList = ({ data }) => {
     );
 };
 
-<<<<<<< HEAD
 export default CommentList;
-=======
-export default CommentList;
->>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
+

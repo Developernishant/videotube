@@ -9,8 +9,6 @@ const ChatMessage = ({name,message}) => {
     </div>
   )
 }
-<<<<<<< HEAD
+
 export default ChatMessage
-=======
-export default ChatMessage
->>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
+

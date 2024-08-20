@@ -64,8 +64,5 @@ const LiveChat = () => {
   );
 };
 
-<<<<<<< HEAD
 export default LiveChat;
-=======
-export default LiveChat;
->>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
+

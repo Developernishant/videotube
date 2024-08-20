@@ -5,10 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { getYoutubeCommentApi, YOUTUBE_VIDEO_BYID } from "../utils/constants";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat"; // Import LiveChat component
-<<<<<<< HEAD
 
-=======
->>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
 
 const WatchPage = () => {
   let [searchParams] = useSearchParams();

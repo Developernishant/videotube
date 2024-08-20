@@ -17,9 +17,6 @@ const Comment = ({ comment }) => {
         </div>
     );
 };
-  
-<<<<<<< HEAD
+
 export default Comment  
-=======
-export default Comment  
->>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
+
