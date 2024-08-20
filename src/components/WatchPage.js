@@ -77,7 +77,7 @@ const WatchPage = () => {
                   {video?.snippet?.title}
                 </h1>
                 </div>
-                <div className="flex ml-10 w-full">
+                <div className="flex ml-10">
                   <div className="flex">
                     <img
                       className="w-12 h-12 mr-1"
