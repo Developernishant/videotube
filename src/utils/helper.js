@@ -48,4 +48,8 @@ var messageList = [
 export function generateMessage() {
     var finalMessage = messageList[Math.floor(Math.random() * messageList.length)];
     return finalMessage;
+<<<<<<< HEAD
   };
+=======
+  };
+>>>>>>> 5ab4b40653984a5424d6364e0cab4275af3dcfea
