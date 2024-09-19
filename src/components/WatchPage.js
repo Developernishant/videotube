@@ -4,8 +4,7 @@ import { sideMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import { getYoutubeCommentApi, YOUTUBE_VIDEO_BYID } from "../utils/constants";
 import CommentContainer from "./CommentContainer";
-import LiveChat from "./LiveChat"; // Import LiveChat component
-
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   let [searchParams] = useSearchParams();
@@ -48,7 +47,7 @@ const WatchPage = () => {
   };
 
   return (
-    <div>
+    <div className="mt-14">
       <div>
         <div className="flex">
           <div>

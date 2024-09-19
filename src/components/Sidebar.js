@@ -6,8 +6,8 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
   if (!isMenuOpen) return null;
   return (
-    <div className="shadow-xl pl-4 mr-2 w-40 h-svh pb-4 text-lg static">
-      <ul className="ml-2 cursor-pointer">
+    <div className="shadow-xl pl-3 mr-2 mt-8 w-40 h-svh pb-4 text-lg fixed font-semibold bg-white">
+      <ul className="ml-2 mt-2 cursor-pointer">
         <li className="flex items-center">
         
           <img
