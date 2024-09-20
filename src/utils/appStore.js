@@ -8,6 +8,7 @@ const appStore = configureStore({
         app:appSlice,
         search:searchSlice,
         chat:chatSlice,
+
     }
 })
 
