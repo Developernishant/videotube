@@ -19,7 +19,7 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className={`flex flex-wrap ${isMenuOpen ? "ml-40" : ""}`}>
+    <div className={`flex flex-wrap ${isMenuOpen ? "ml-40" : ""} xs:ml-0`}>
       {videos.map((video) => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard info={video} />
