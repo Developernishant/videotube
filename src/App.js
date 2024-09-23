@@ -12,7 +12,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <Router>
-        <Header />  {/* Header is now inside the Router */}
+        <Header />
         <Routes>
           <Route path="/" element={<Body />}>
             <Route index element={<MainContainer />} />

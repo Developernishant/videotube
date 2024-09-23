@@ -26,7 +26,7 @@ const SearchPage = () => {
   };
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mt-10 mb-10">
       <div className="md:hidden lg:hidden sm:hidden text-xl mx-4">
         <h1 className="mb-4">Results for : {searchQuery}</h1>
         <div className="grid xs:grid-cols-1 gap-4">

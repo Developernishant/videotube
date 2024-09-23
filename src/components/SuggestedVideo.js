@@ -1,7 +1,6 @@
 import React from 'react';
 import useFormatDuration from '../hooks/useFormatDuration';
 
-// Helper function to format view count
 const formatViewCount = (count) => {
   if (count >= 1e6) return `${(count / 1e6).toFixed(1)}M`;
   if (count >= 1e3) return `${(count / 1e3).toFixed(1)}K`;
@@ -15,7 +14,7 @@ const SuggestedVideo = ({ info }) => {
   const duration = contentDetails ? contentDetails.duration : '0';
   const formatDuration = useFormatDuration()
 
-  const maxTitleLength = 50; // Maximum length of the title before truncation
+  const maxTitleLength = 50;
   const truncatedTitle = title.length > maxTitleLength ? title.slice(0, maxTitleLength) + '...' : title;
 
   return (
@@ -24,7 +23,6 @@ const SuggestedVideo = ({ info }) => {
     > 
       <div className="relative">
         <img className="rounded-lg w-80" alt="thumbnail" src={thumbnails.medium.url} />
-        {/* Duration overlay */}
         <div className="absolute bottom-1 right-1 bg-black bg-opacity-75 text-white text-xs px-1 rounded">
           {formatDuration(duration)}
         </div>

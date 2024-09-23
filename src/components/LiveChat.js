@@ -27,11 +27,11 @@ const LiveChat = () => {
     if (liveMessage.trim()) {
       dispatch(
         addMessage({
-          name: "You", // You can replace this with the actual user's name
+          name: "You", 
           message: liveMessage,
         })
       );
-      setLiveMessage(""); // Clear the input field after submitting
+      setLiveMessage("");
     }
   };
 
@@ -54,7 +54,7 @@ const LiveChat = () => {
           onChange={(e) => {
             setLiveMessage(e.target.value);
           }}
-          placeholder="Type Something Here" // Placeholder message
+          placeholder="Type Something Here" 
         />
         <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
           Send

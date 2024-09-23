@@ -44,11 +44,11 @@ const WatchPage = () => {
   if (!videoInfo) return null;
 
   return (
-    <div className="flex flex-col lg:flex-row mt-14 mx-4 xs:mx-3">
+    <div className="flex flex-col lg:flex-row mt-14 mx-4 xs:mx-3 mb-10">
       <div className="lg:w-[calc(100%-400px)] lg:mr-4">
         <div className="w-full">
           <iframe
-            className="w-full aspect-video rounded-3xl"
+            className="w-full aspect-video rounded-xl"
             src={`https://www.youtube.com/embed/${videoId}`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

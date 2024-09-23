@@ -1,7 +1,7 @@
 const YOUTUBE_API_KEY = "AIzaSyAipFhUncbYLHECiosqbcIKa-lK3a3llMQ";
 
 export const YOUTUBE_VID_API =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&hl=pa&relevanceLanguage=pa&regionCode=IN&videoCategoryId=10&key=" +
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=28&hl=pa&relevanceLanguage=pa&regionCode=IN&videoCategoryId=10&key=" +
   YOUTUBE_API_KEY;
 
   export const SUGGESTED_VID_API =

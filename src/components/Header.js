@@ -9,7 +9,6 @@ const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
 
-  // Handle window resize to manage responsiveness
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -46,7 +45,6 @@ const Header = () => {
           />
         )}
 
-        {/* Show logo only when search is not active or on larger screens */}
         {(!isSearchActive || windowWidth > 640) && (
           <a href="/" className="ml-5">
             <img
@@ -58,14 +56,12 @@ const Header = () => {
         )}
       </div>
 
-      {/* Pass the isSearchActive state to SearchBar */}
       <SearchBar
         isSearchActive={isSearchActive}
         setIsSearchActive={setIsSearchActive}
       />
 
       <div className="flex items-center mr-2">
-        {/* Only hide the right-side icons on xs screen when search is active */}
         {(!isSearchActive || windowWidth > 640) && (
           <>
             <button
