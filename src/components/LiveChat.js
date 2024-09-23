@@ -36,7 +36,7 @@ const LiveChat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[460px] border border-gray-300 bg-white rounded-lg shadow-lg">
+    <div className="flex flex-col h-[460px] border border-gray-300 bg-white rounded-lg shadow-lg xs:hidden">
       <div className="flex-1 overflow-y-auto p-4 flex flex-col-reverse">
         {Array.isArray(chatMessage) && chatMessage.length > 0 ? (
           chatMessage.map((c, i) => (

@@ -13,6 +13,7 @@ const SearchBar = ({ isSearchActive, setIsSearchActive }) => {
   const handleSearch = (query) => {
     if (query.trim() !== "") {
       setShowSuggestions(false);
+      setSearchQuery(""); 
       navigate(`/search?query=${encodeURIComponent(query)}`);
     }
   };
@@ -22,8 +23,24 @@ const SearchBar = ({ isSearchActive, setIsSearchActive }) => {
     handleSearch(suggestion);
   };
 
+  const handleKeyDown = (e) => {
+    if (showSuggestions) {
+      if (e.key === "ArrowDown") {
+        setHighlightedIndex((prevIndex) => Math.min(prevIndex + 1, suggestqueries.length - 1));
+      } else if (e.key === "ArrowUp") {
+        setHighlightedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+      } else if (e.key === "Enter" && highlightedIndex >= 0) {
+        handleSuggestionClick(suggestqueries[highlightedIndex]);
+      }
+    }
+  };
+
   return (
-    <div className={`relative w-full max-w-lg ${isSearchActive ? "xs:block" : "xs:hidden"} sm:block`}>
+    <div
+      className={`relative w-full max-w-lg ${isSearchActive ? "xs:block" : "xs:hidden"} sm:block`}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+    >
       <div className="flex mx-2">
         <input
           className="border px-3 w-full rounded-l-full bg-gray-100 focus:outline-none"

@@ -3,162 +3,146 @@ import { useDispatch } from "react-redux";
 import { sideMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import { getYoutubeCommentApi, YOUTUBE_VIDEO_BYID } from "../utils/constants";
-import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
+import SuggestedContainer from "./SuggestedContainer";
+import CommentList from "./CommentList";
 
 const WatchPage = () => {
-  let [searchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const [comments, setComments] = useState([]);
-  const dispatch = useDispatch();
-  const videoDetails = YOUTUBE_VIDEO_BYID + searchParams.get("v");
-  const [videoInfo, setVideoInfo] = useState([]);
+  const [videoInfo, setVideoInfo] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleExpand = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const apiUrl = getYoutubeCommentApi(videoId);
-
-  const getVideoComment = async () => {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-    setComments(data);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(sideMenu());
     if (videoId) {
       getVideoComment();
+      getVideoInfo();
     }
-    const getVideoInfo = async () => {
-      const data = await fetch(videoDetails);
-      const json = await data.json();
-      setVideoInfo(json.items);
-    };
-    getVideoInfo();
-  }, [videoId]);
+  }, [videoId, dispatch]);
 
-  const formatViewCount = (count) => {
+  const getVideoComment = async () => {
+    const response = await fetch(getYoutubeCommentApi(videoId));
+    const data = await response.json();
+    setComments(data.items); 
+  };
+
+  const getVideoInfo = async () => {
+    const response = await fetch(YOUTUBE_VIDEO_BYID + videoId);
+    const data = await response.json();
+    setVideoInfo(data.items[0]);
+  };
+
+  const formatCount = (count) => {
     if (count >= 1e6) return `${(count / 1e6).toFixed(1)}M`;
     if (count >= 1e3) return `${(count / 1e3).toFixed(1)}K`;
     return count;
   };
 
+  if (!videoInfo) return null;
+
   return (
-    <div className="mt-14">
-      <div>
-        <div className="flex">
-          <div>
-            <iframe
-              className="ml-12 rounded-2xl"
-              width="845"
-              height="470"
-              src={"https://www.youtube.com/embed/" + searchParams.get("v")}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+    <div className="flex flex-col lg:flex-row mt-14 mx-4 xs:mx-3">
+      <div className="lg:w-[calc(100%-400px)] lg:mr-4">
+        <div className="w-full">
+          <iframe
+            className="w-full aspect-video rounded-3xl"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="w-full ">
+          <h1 className="text-ellipsis overflow-hidden font-bold text-xl m-2 xs:text-base">
+            {videoInfo?.snippet?.title}
+          </h1>
+        </div>
+        <div className="mt-3 md:flex items-center justify-between">
+          <div className="flex items-center">
+            <img
+              className="w-10 h-10 rounded-full mr-3"
+              src={videoInfo.snippet.thumbnails.default.url}
+              alt="Channel avatar"
+            />
+            <div className="mr-4 xs:m-0">
+              <p className="font-bold">{videoInfo.snippet.channelTitle}</p>
+              <p className="text-sm text-gray-500">subscribers</p>
+            </div>
+            <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-opacity-90 xs:ml-10">
+              Subscribe
+            </button>
           </div>
-          <div className="w-full mt-1 ml-4">
-            <LiveChat />
+          <div className="flex space-x-2 mt-3">
+            <div className="flex rounded-full bg-gray-100">
+              <button className="px-4 py-2 flex items-center">
+                <img
+                  className="w-6 h-6 mr-2"
+                  src="https://i.ibb.co/nPdcWx2/like.png"
+                  alt="like"
+                />
+                <span>{formatCount(videoInfo.statistics.likeCount)}</span>
+              </button>
+              <button className="px-4 py-2 border-l-2 xs:hidden">
+                <img
+                  className="w-6 h-6"
+                  src="https://i.ibb.co/f2m1Kyh/dont-like.png"
+                  alt="dislike"
+                />
+              </button>
+            </div>
+            <button className="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+              <img
+                className="w-6 h-6 mr-2"
+                src="https://i.ibb.co/qWv2pcw/share.png"
+                alt="share"
+              />
+              Share
+            </button>
+            <button className="bg-gray-100 px-4 py-2 rounded-full flex items-center">
+              <img
+                className="w-6 h-6 mr-2"
+                src="https://i.ibb.co/KwM0hfp/download.png"
+                alt="download"
+              />
+              Download
+            </button>
           </div>
         </div>
-        {videoInfo.map((video) => {
-          return (
-            <React.Fragment key={video.id}>
-              {/* Subscriber Section */}
-              <div className="mt-4">
-              <div className="w-4/6 ">
-                <h1 className="text-ellipsis overflow-hidden font-bold text-xl m-2 ml-12">
-                  {video?.snippet?.title}
-                </h1>
-                </div>
-                <div className="flex ml-10">
-                  <div className="flex">
-                    <img
-                      className="w-12 h-12 mr-1"
-                      src={`https://i.ibb.co/JCNpF6X/user-profile.png`}
-                      alt="user-profile"
-                    />
-                    <div className="flex flex-col">
-                      <span className="font-bold text-gray-800 overflow-hidden">
-                        {video?.snippet?.channelTitle}
-                      </span>
-                      <span className="text-sm">
-                        {video?.statistics?.subscriberCount} Subscribers
-                      </span>
-                    </div>
-                  </div>
-                  <span className="flex">
-                    <button className="bg-black text-white border border-gray-200 shadow-sm px-5 py-1 rounded-full m-2 ml-5 hover:bg-slate-800">
-                      Subscribe
-                    </button>
-                    <div className="flex">
-                      <button className="border flex border-gray-200 shadow-sm pl-2 pr-5 py-1 bg-gray-200 rounded-l-full my-2 border-r-gray-400 hover:bg-gray-300 ml-24">
-                        <img
-                          className="w-6 h-6 py-1 px-1"
-                          src="https://i.ibb.co/nPdcWx2/like.png"
-                          alt="like"
-                        />
-                        {formatViewCount(video?.statistics?.likeCount)}
-                      </button>
-                      <button className="border flex border-gray-200 shadow-sm pr-5 py-1 bg-gray-200 rounded-r-full my-2 hover:bg-gray-300">
-                        <img
-                          className="w-6 h-6 py-1 px-1"
-                          src="https://i.ibb.co/f2m1Kyh/dont-like.png"
-                          alt="dont-like"
-                        />
-                        {formatViewCount(video?.statistics?.likeCount / 8)}
-                      </button>
-                    </div>
-                    <button className=" flex border border-gray-200 shadow-sm pl-2 pr-4 py-1 bg-gray-200 rounded-full m-2 hover:bg-gray-300 ">
-                      <img
-                        className="w-6 h-6 py-1 px-1"
-                        src="https://i.ibb.co/qWv2pcw/share.png"
-                        alt="share"
-                      />
-                      Share
-                    </button>
-                    <button className="flex border border-gray-200 shadow-sm pl-1 pr-4 py-1 bg-gray-200 rounded-full m-2 hover:bg-gray-300 ">
-                      <img
-                        className="w-6 h-6 py-1 px-1"
-                        src="https://i.ibb.co/KwM0hfp/download.png"
-                        alt="download"
-                      />{" "}
-                      Download
-                    </button>
-                  </span>
-                </div>
-              </div>
-              <div className="m-2 rounded-lg shadow-sm bg-gray-100 p-2 w-3/5 ml-16">
-                <span className="font-bold">
-                  {formatViewCount(video?.statistics?.viewCount)} Views
-                  {video?.snippet?.publishedAt}
-                </span>
-                <div>
-                  {isExpanded
-                    ? video?.snippet?.description
-                    : `${video?.snippet?.description.slice(0, 200)}...`}
-                  <span
-                    onClick={toggleExpand}
-                    className="text-blue-500 cursor-pointer"
-                  >
-                    {isExpanded ? " Read less" : " Read more"}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <CommentContainer data={comments} />
-              </div>
-            </React.Fragment>
-          );
-        })}
+
+        <div className="mt-4 bg-gray-100 p-3 rounded-lg">
+          <p className="font-bold">
+            {formatCount(videoInfo.statistics.viewCount)} views •{" "}
+            {new Date(videoInfo.snippet.publishedAt).toLocaleDateString()}
+          </p>
+          <p className="mt-2">
+            {isExpanded
+              ? videoInfo.snippet.description
+              : `${videoInfo.snippet.description.slice(0, 100)}...`}
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="text-blue-600 ml-2"
+            >
+              {isExpanded ? "Show less" : "Show more"}
+            </button>
+          </p>
+        </div>
+        <div className="block lg:hidden mt-4">
+          <SuggestedContainer />
+        </div>
+        <div className="mt-4 xs:border-t-2">
+          <CommentList comments={comments} />
+        </div>
+      </div>
+      <div className="hidden lg:block lg:w-[400px] mt-4 lg:mt-0">
+        <div className="mb-4">
+          <LiveChat />
+        </div>
+        <SuggestedContainer />
       </div>
     </div>
-   
   );
 };
 

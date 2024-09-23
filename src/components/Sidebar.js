@@ -8,7 +8,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return null;
 
   return (
-    <div className="shadow-xl pl-3 mr-2 mt-8 w-40 h-screen pb-4 text-lg fixed font-semibold bg-white xs:top-5 xs:left-0 xs:w-44 xs:h-70% xs:z-50">
+    <div className="shadow-xl w-40 pl-3 mr-2 h-screen pb-4 text-lg fixed font-semibold bg-white xs:top-12 xs:left-0 xs:w-44 xs:h-70% xs:z-50 sm:left-0 sm:w-40 sm:h-full sm:z-50 sm:top-12 md:w-40 md:top-12">
       <ul className="ml-2 mt-2 cursor-pointer">
         <li className="flex items-center mb-3">
           <img className="h-4 w-4 mr-1" src="https://img.icons8.com/material-rounded/24/home.png" alt="home" />
