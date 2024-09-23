@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SUGGESTED_VID_API } from '../utils/constants';
-import SuggestedVideo from './SuggestedVideo'; // Import SuggestedVideo from the correct file
+import SuggestedVideo from './SuggestedVideo'; 
 import { Link } from 'react-router-dom';
 
 const SuggestedContainer = () => {
@@ -38,9 +38,8 @@ const SuggestedContainer = () => {
   }
 
   return (
-    <div className="suggested-videos ml-0 sm:ml-0 md:ml-0"> {/* Remove margin-left for sm and md screens */}
+    <div className="suggested-videos ml-0 sm:ml-0 md:ml-0"> 
       <h2 className="text-lg font-bold mb-3">Suggested videos</h2>
-      {console.log(suggestedVideos)}
       {suggestedVideos && suggestedVideos.length > 0 ? (
         <div className="flex flex-wrap">
           {suggestedVideos.map((video) => (

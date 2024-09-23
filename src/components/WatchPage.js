@@ -61,21 +61,25 @@ const WatchPage = () => {
           </h1>
         </div>
         <div className="mt-3 md:flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center mx-2">
             <img
-              className="w-10 h-10 rounded-full mr-3"
+              className="w-10 h-10 rounded-full mr-1"
               src={videoInfo.snippet.thumbnails.default.url}
               alt="Channel avatar"
             />
-            <div className="mr-4 xs:m-0">
-              <p className="font-bold">{videoInfo.snippet.channelTitle}</p>
+            <div className="mr-2 xs:m-3">
+              <p className="font-bold text-ellipsis overflow-hidden whitespace-nowrap xs:mr-16">
+                {videoInfo.snippet.channelTitle.length > 15 
+                  ? `${videoInfo.snippet.channelTitle.slice(0, 15)}...` 
+                  : videoInfo.snippet.channelTitle}
+              </p>
               <p className="text-sm text-gray-500">subscribers</p>
             </div>
-            <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-opacity-90 xs:ml-10">
+            <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-opacity-90">
               Subscribe
             </button>
           </div>
-          <div className="flex space-x-2 mt-3">
+          <div className="flex space-x-2 mt-3 mx-3">
             <div className="flex rounded-full bg-gray-100">
               <button className="px-4 py-2 flex items-center">
                 <img
@@ -117,7 +121,7 @@ const WatchPage = () => {
             {formatCount(videoInfo.statistics.viewCount)} views •{" "}
             {new Date(videoInfo.snippet.publishedAt).toLocaleDateString()}
           </p>
-          <p className="mt-2">
+          <p className="mt-2 max-w-full"> 
             {isExpanded
               ? videoInfo.snippet.description
               : `${videoInfo.snippet.description.slice(0, 100)}...`}

@@ -9,7 +9,6 @@ const formatViewCount = (count) => {
 };
 
 const VideoCard = ({ info }) => {
-  console.log(info)
   const { snippet, statistics, contentDetails } = info;
   const { title, channelTitle, thumbnails } = snippet;
   const duration = contentDetails ? contentDetails.duration : "0";
@@ -30,10 +29,10 @@ const VideoCard = ({ info }) => {
     >
       <div className="relative">
         <img
-          className="rounded-lg w-full object-cover" // Ensure the image covers the container width
+          className="rounded-lg w-full object-cover" 
           alt="thumbnails"
           src={thumbnails.medium.url}
-          style={{ objectFit: 'cover' }} // Use object-fit to maintain aspect ratio
+          style={{ objectFit: 'cover' }}
         />
         <div className="absolute bottom-1 right-1 bg-black bg-opacity-75 text-white text-xs px-1 rounded">
           {formatDuration(duration)}
