@@ -49,7 +49,7 @@ const SearchPage = () => {
                 </h2>
                 <div className="flex items-center mt-2">
                   <img
-                    className="w-6 h-6 mr-2"
+                    className="w-6 h-6 mr-2 rounded-full"
                     src={item.snippet.thumbnails.default.url}
                     alt="channel-logo"
                   />
@@ -73,7 +73,7 @@ const SearchPage = () => {
               <li>
                 <div className="flex m-5">
                   <img
-                    className="rounded-lg w-60 h-auto md:h-36 sm:h-36"
+                    className="rounded-lg w-60 h-auto md:h-36 sm:h-36 "
                     src={item.snippet.thumbnails.medium.url}
                     alt={item.snippet.title}
                   />

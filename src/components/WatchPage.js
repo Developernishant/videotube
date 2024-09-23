@@ -68,7 +68,7 @@ const WatchPage = () => {
               alt="Channel avatar"
             />
             <div className="mr-2 xs:m-3">
-              <p className="font-bold text-ellipsis overflow-hidden whitespace-nowrap xs:mr-16">
+              <p className="font-bold text-ellipsis overflow-hidden whitespace-nowrap xs:mr-20">
                 {videoInfo.snippet.channelTitle.length > 15 
                   ? `${videoInfo.snippet.channelTitle.slice(0, 15)}...` 
                   : videoInfo.snippet.channelTitle}
