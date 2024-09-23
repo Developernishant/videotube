@@ -60,7 +60,7 @@ const WatchPage = () => {
             {videoInfo?.snippet?.title}
           </h1>
         </div>
-        <div className="mt-3 md:flex items-center justify-between">
+        <div className="md:flex items-center justify-between">
           <div className="flex items-center mx-2">
             <img
               className="w-10 h-10 rounded-full mr-1"
