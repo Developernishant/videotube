@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# YouTube-inspired Video Streaming App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A feature-rich video streaming application built with React, leveraging the YouTube API.
 
-## Available Scripts
+![GitHub](https://img.shields.io/github/license/ismartGaurav/myTube)
+![GitHub last commit](https://img.shields.io/github/last-commit/ismartGaurav/myTube)
+![GitHub stars](https://img.shields.io/github/stars/ismartGaurav/myTube?style=social)
 
-In the project directory, you can run:
+## 📺 About
 
-### `npm start`
+This video streaming application replicates key features of YouTube, utilizing the live YouTube API to provide a seamless video browsing and watching experience. Built with modern web technologies, it offers a responsive and intuitive interface for users across all devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **YouTube API Integration**: Leverages live YouTube API for real-time data
+- **Tailwind CSS Styling**: Efficient and consistent styling across the application
+- **Redux State Management**: Handles application states including sidebar, search suggestions, and live chat
+- **React Router Navigation**: Seamless navigation throughout the application
+- **Real-time Search Suggestions**: Provides suggestions as the user types in the search bar
+- **Search Query Caching**: Optimizes performance by caching previous search queries
+- **Live Chat Feature**: Implements a YouTube-like live chat on video watch pages
+- **Video Comments and Suggestions**: Fetches and displays comments and suggested videos
+- **Custom Hooks**: 
+  - Video Duration Display
+  - Search Suggestions Management
+- **Fully Responsive Design**: Consistent user experience across all devices
 
-### `npm test`
+## 🛠️ Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [React Router](https://reactrouter.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [YouTube API](https://developers.google.com/youtube/v3)
 
-### `npm run build`
+## 🚀 Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository
+2. git clone https://github.com/IsmartGaurav/myTube.git
+3. Install dependencies
+4. Set up YouTube API
+- Obtain a YouTube API key from the [Google Developers Console](https://console.developers.google.com/)
+- Create a `.env` file in the root directory
+- Add your API key: `REACT_APP_YOUTUBE_API_KEY=your_api_key_here`
+5. Start the development server
+6. npm start
+7. Open `http://localhost:3000` in your browser
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📸 Screenshots
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home Page](https://i.ibb.co/Jx4Ddwj/sc1.png)
+![Video Watch Page](https://i.ibb.co/wS0Kf3H/sc2.png)
+![Video Watch Page](https://i.ibb.co/ysm3XyF/sc3.png)
+![Search Suggestions](https://i.ibb.co/KjF85Wv/sc4.png)
+![Search Page](https://i.ibb.co/zVtS087/sc5.png)
+![Mobile Version](https://i.ibb.co/wsvXLvZ/mb1.png)
+![Mobile Search Sugg.](https://i.ibb.co/LhLNP7z/mb2.png)
+![Mobile SearchPage](https://i.ibb.co/k1SGZDZ/mb3.png)
+![Mobile WatchPage](https://i.ibb.co/KVRfwJf/mb4.png)
+![Comments & Suggested Video](https://i.ibb.co/m6tvKqv/mb5.png)
 
-### `npm run eject`
+## 🤝 Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](link-to-issues-page).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📄 License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This project is [MIT](link-to-license-file) licensed.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 👨‍💻 Author
 
-## Learn More
+**Gaurav Sharma**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- GitHub: [@IsmartGaurav](https://github.com/ismartgaurav)
+- LinkedIn: [Gaurav Sharma](https://www.linkedin.com/in/ismartgaurav)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you find this Video Streaming App helpful, please consider giving it a star ⭐️!
