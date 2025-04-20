@@ -2,9 +2,9 @@
 
 A feature-rich video streaming application built with React, leveraging the YouTube API.
 
-![GitHub](https://img.shields.io/github/license/ismartGaurav/myTube)
-![GitHub last commit](https://img.shields.io/github/last-commit/ismartGaurav/myTube)
-![GitHub stars](https://img.shields.io/github/stars/ismartGaurav/myTube?style=social)
+![GitHub](https://img.shields.io/github/license/Developernishant/videotube)
+![GitHub last commit](https://img.shields.io/github/last-commit/Developernishant/videotube)
+![GitHub stars](https://img.shields.io/github/stars/Developernishant/videotube?style=social)
 
 ## 📺 About
 
@@ -69,10 +69,10 @@ This project is [MIT](link-to-license-file) licensed.
 
 ## 👨‍💻 Author
 
-**Gaurav Sharma**
+**nishantsingh**
 
-- GitHub: [@IsmartGaurav](https://github.com/ismartgaurav)
-- LinkedIn: [Gaurav Sharma](https://www.linkedin.com/in/ismartgaurav)
+- GitHub: [@Developernishant](https://github.com/Developernishant)
+- LinkedIn: [Nishant Kumar](www.linkedin.com/in/developernishant)
 
 ---
 
